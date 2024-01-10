@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html{
+  height: 100vh;
+  width: 100vw;
+  font-size: 62.5%;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body{
+  background: linear-gradient(rgba(17, 17, 17, 0.8), rgba(20, 20, 20, 1)),url("../images/img5.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 0px;
+  background-size: 100% 100vh;
+}
+
+@import "../scss_pagina_inicial/colors";
+@import "../scss_pagina_inicial/_header";
+@import "../scss_pagina_inicial/_layout";
+@import "../scss_pagina_inicial/servico";
+
+a{
+    color: $white-normal;
+}

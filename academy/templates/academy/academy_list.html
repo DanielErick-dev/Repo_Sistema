@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {% if pagina_usuarios_pendentes %}
+        Página de listagem de usuarios pendentes
+    {% else %}
+        Página de Listagem de Usuários
+
+    {% endif %}
+{% endblock title %}
+{% block content %}
+    {% if pagina_usuarios_pendentes %}
+        {% if usuarios_pendentes %}
+            <h1>existem usuários com vencimento pendente</h1>
+        {% else %}
+            <h1>não existe usuário com vencimento pendente</h1>
+    {% endif %}
+    {% else %}
+        {% if academy_list %}
+        <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">nome</th>
+                        <th scope="col">sobrenome</th>
+                        <th scope="col">contato</th>
+                        <th scope="col">data de criação</th>
+                        <th scope="col">data de vencimento</th>
+                        <th scope="col">Ações da página de listagem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in academy_list %}
+                        <tr>
+                            <th scope="row">{{ usuario.pk }}</th>
+                            <td>{{ usuario.name }}</td>
+                            <td>{{ usuario.lastname }}</td>
+                            <td>{{ usuario.contact }}</td>
+                            <td>{{ usuario.created_at }}</td>
+                            <td>{{ usuario.vencimento }}</td>
+                            <td><a href="{% url 'delete_view' pk=usuario.pk %}" class="btn btn-outline-danger">Deletar Usuário</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+        </table> 
+        {% else %}
+        <p style="text-transform: capitalize;">não existe usuários cadastrados</p>
+        {% endif %}
+    {% endif %}
+{% endblock content %}

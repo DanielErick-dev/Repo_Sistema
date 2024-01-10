@@ -1,0 +1,142 @@
+main{
+    height: 93vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+}
+
+/* texto conteúdo principal */
+
+.primary-text{
+    max-width: 850px;
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.second-text{
+    margin-bottom: 7rem;
+    font-size: 2rem;
+    color: rgb(165, 165, 165);
+    text-transform: uppercase;
+}
+
+/* botões */
+
+
+.btns{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+}
+.btn-ins, .btn-agendar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    
+
+}
+.btns a{
+    width: 250px;
+    height: 60px;
+    cursor: pointer;
+    border: 1px solid #fff;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: transparent;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    border-radius: 20px;
+    position: relative;
+    transition: 1.5s;
+
+}
+.btns a:hover{
+    color: rgb(251, 255, 0);
+    border: none;
+}
+.btns a::before{
+    content: ' ';
+    border-radius: 20px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 60px;
+    background: rgb(61, 61, 61);
+    z-index: -1;
+    transition: 1s;
+
+}
+
+.btns a:hover:before{
+    width: 100%;
+}
+
+
+@media screen and (max-width: 650px){
+    .primary-text{
+        width: 550px;
+        font-size: 2.5rem;
+        
+    }
+    .second-text{
+        font-size: 1.3rem;
+        
+    }
+    .btns a{
+        width: 200px;
+        height: 60px;
+        letter-spacing: 0.1rem;
+        border-radius: 16px;
+        transition: 1.5s;
+    
+    }
+    .main-content{
+        min-height: 60vh;
+
+        h1{
+            font-size: 34px;
+            padding: 0 14px;
+            width: 100%;
+        }
+
+        h2{
+            font-size: 14px;
+        }
+    } 
+}
+
+
+@media screen and (max-width: 450px){
+    .primary-text{
+        width: 300px;
+        font-size: 2rem;
+        
+    }
+    .second-text{
+        font-size: 1.4rem;
+        
+    }
+    .btns a{
+        width: 150px;
+        height: 60px;
+        text-align: center;
+        border-radius: 14px;
+        transition: 1.5s;
+    
+    }
+}

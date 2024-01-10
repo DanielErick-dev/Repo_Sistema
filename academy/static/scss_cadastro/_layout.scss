@@ -1,0 +1,157 @@
+/* centro - conteúdo principal */
+
+main{
+    height: 91vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.container{
+    display: flex;
+    justify-content: end;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+}
+
+.caixa{
+    max-width: 30%;
+    max-height: 65%;
+    border: 3px solid #696758;
+    border-radius: 5rem;
+    margin-right: 5rem;
+    box-shadow: 0 7px 11px rgba(0, 0, 0, 0.5);
+   
+}
+
+.box-image{
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        width: 20%;
+        border-radius: 2rem;
+    }
+}
+
+
+.box-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 100%;
+    
+   
+}
+
+.form{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+}
+.form label{
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #fff;
+}
+.form p{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    width: 4rem;
+    height: 1rem;
+    font-size: 1.5rem;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 5rem;
+   
+}
+
+.form input{
+    padding: 0.9rem;
+    border-radius: 0.6rem;
+    background: #c0c0c0;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    
+    
+}
+
+
+.btns{
+    display: flex;
+    width: 100%;
+    height: 15%;
+    justify-content: center;
+    align-items: end;
+    margin-top: 1rem;
+    gap: 0.6rem;
+    
+    
+}
+
+.btns button, .btn-cancel{
+    border: 2px solid #c0c0c0;
+    padding: 1.3rem;
+    border-radius: 1rem;
+    width: 25%;
+    height: 90%;
+    text-transform: uppercase;
+    background: transparent;
+    color: #fff;
+    letter-spacing: 0.3rem;
+    cursor: pointer;
+    position: relative;
+    transition: 1.5s;
+    font-weight: bold;
+    text-decoration: none
+    
+}
+.btns button:hover::before, .btn-cancel:hover::before{
+    width: 100%;
+    color:rgb(251, 255, 0);
+}
+.btns button:hover, .btn-cancel:hover{
+    color:rgb(251, 255, 0);
+    border: none;
+}
+.btns button::before, .btn-cancel::before{
+    content: ' ';
+    left: 0;
+    bottom: 0;
+    width: 0;
+    position: absolute;
+    border-radius: 1rem;
+    height: 90%;
+    transition: 1s;
+    background: rgb(61, 61, 61);
+    z-index: -1;
+    
+}
+
+.erro{
+    position: absolute;
+    width: 100%;
+    height: 5%;
+    bottom: 17%;
+    left: 20%;
+}
+
+
+
+
+

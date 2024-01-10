@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% endblock link %}
+{% block title %}
+    Página Inicial Da Academia
+{% endblock title %}
+{% block header %}
+    <style>
+        
+        nav li i{
+            color: #fff;
+            text-decoration: none;
+            padding: 15px;
+            cursor: pointer;
+            
+           
+        }
+        nav li i:hover{
+            color: darkgoldenrod;
+        }
+        .dropdown-menu{
+            position: absolute;
+            box-shadow: 0 0 2px #fff;
+            display: none;
+            width: 120px;
+            height: 200px;
+            background-color: black;
+            border-radius: 2rem;
+            padding: 10px 4px 5px 20px;
+            
+        }
+        .dropdown-menu a{
+            width: 100px;
+            margin-top: 0.4rem;
+            padding: 1.5rem 0;
+            font-size: 1.3rem;
+            font-weight: bold;
+            font-family: "Lato", sans-serif;
+            letter-spacing: 0.1rem;
+            
+        }
+        #servico{
+            transition: all 0.8s;  
+        }
+        #servico:hover{
+            transform: scale(2);
+            color: darkorange;
+            text-shadow: 0 0 1px #fff;
+            font-weight: bold;
+        }
+        .dropdown:hover .dropdown-menu, .dropdown:active .dropdown-menu{
+            display: block;
+        }
+        .menu-content .list-itens a{
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.8s;
+        }
+        .menu-content .list-itens a:hover{
+            transform: scale(1.1);
+            color: darkorange;
+            text-shadow: 0 0 1px #fff;
+            font-weight: bold;
+            
+        }
+        @media screen and (max-width: 650px) {
+            .menu-content .header-menu{
+                #servico{
+                    display: none;
+                }
+                .list-itens{
+                    gap: 0.2rem;
+                }
+                .dropdown-menu{
+                    height: 150px;
+                }
+            }
+        }
+    </style>
+    <div class="menu-content">
+        <a style="color: #fff; text-decoration: none;" class="logo" href="{% url 'index_view' %}">Strongfitness</a>
+        <nav class="header-menu">
+            <ul class="list-itens">
+                <li><a href="#servicos" id="servico" onclick="Irparaservicos();" scroll-behavior="smooth">Serviços</a></li>
+                <script>
+                    console.log("executando navegação entre seções")
+                    function Irparaservicos(){
+                        document.getElementById("servicos").scrollIntoView({
+                            behavior: "smooth",
+                            duration: 3000
+                        });
+                    }
+
+                    
+                </script>
+                {% if logado %}
+                    <li class="dropdown">
+                        <i class="fas fa-bars"></i>
+                        <div class="dropdown-menu">
+                            <a href="{% url 'academy_list' %}">USUÁRIOS SALVOS</a>
+                            <a href="{% url 'usuarios_pendentes_view' %}">USUÁRIOS PENDENTES</a>
+                            
+                        </div>
+                    </li>
+                    
+                {% endif %}
+                <li><a href="https://www.instagram.com/strongfitnessdf/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="https://www.instagram.com/strongfitnessdf/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+{% endblock header %}
+{% block content %}
+    <div class="main-content">
+        <h1 class="primary-text">A Dor É Inevitável, O Sofrimento É Opcional</h1>
+        <h2 class="second-text">Inscreva-se Agora E Mude De Vida</h2>
+        <div class="btns">
+            <a class="btn-ins" id="btn" href="{% url 'cadastro_view' %}">inscrever-se na academia</a>
+            <a class="btn-agendar" href="#">Realizar Pagamento</a>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block section1 %}
+    <div class="about"id="servicos">
+        <div class="about-content container">
+            <div>
+                <img src="{% static 'images/homem_treinando.jpeg' %}" alt="imagem de pessoas treinando">
+            </div>
+            <div class="about-description">
+                <h2>Sobre a academia</h2>
+                <p>a academia strong fitness lhe convida a participar dessa grande familia, aqui você conhecerá o conceito de luta e conquista diariamente, venha conosco!!</p>
+                <p><strong>horário de funcionamento</strong>
+                    <a href="javascript:vizualizar_elemento()" onclick="vizualizar_elemento();">
+                        <i class="fas fa-angle-down" id="seta-pra-baixo"></i>
+                    </a>
+                    <a href="javascript:esconder_elemento()" onclick="esconder_elemento();">
+                        <i class="fas fa-angle-up" id="seta-pra-cima" style="display: none;"></i>
+                    </a>
+                </p>
+                <script>
+                    
+                    function vizualizar_elemento(){
+                        var ElementoP = document.getElementById("p");
+                        var ElementoP1 = document.getElementById("p1");
+                        var IconeUP = document.getElementById("seta-pra-cima");
+                        var IconeDown = document.getElementById("seta-pra-baixo");
+                        ElementoP.style.display = "flex";
+                        ElementoP1.style.display = "flex";
+                        IconeUP.style.display = "inline-flex";   
+                        IconeDown.style.display = "none"; 
+                        
+                    }
+                    function esconder_elemento(){
+                        var ElementoP = document.getElementById("p");
+                        var ElementoP1 = document.getElementById("p1");
+                        var IconeUP = document.getElementById("seta-pra-cima");
+                        var IconeDown = document.getElementById("seta-pra-baixo");
+                        ElementoP.style.display = "none";
+                        ElementoP1.style.display = "none";
+                        IconeUP.style.display = "none";   
+                        IconeDown.style.display = "inline-flex"; 
+                        
+                    }
+                </script>
+                <p id="p">
+                    durante a semana: 06:00 ás 12:00 e 16:00 ás 21:00</p>
+                <p id="p1">finais de semana: <strong>fechada!!</strong></p>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+{% endblock section1 %}
+
+
+

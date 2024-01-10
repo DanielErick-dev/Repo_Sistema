@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+/* zerando css */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+/* fundo do html */
+html{
+    height: 100vh;
+    width: 100vw;
+    font-size: 62.5%;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+}
+body{
+    
+    background: linear-gradient(rgba(17, 17, 17, 0.8), rgba(20, 20, 20, 1)),url("../images/img6_background_woman.webp");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 0px;
+    
+    
+}
+@media screen and (max-width: 760px){
+    body{
+        background: linear-gradient(rgba(17, 17, 17, 0.8), rgba(20, 20, 20, 1)),url("../images/img6_background_woman.webp");
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+
+@import "../scss_cadastro/colors";
+@import "../scss_cadastro/header";
+@import "../scss_cadastro/layout";
+@import "../scss_cadastro/section_alternativa";

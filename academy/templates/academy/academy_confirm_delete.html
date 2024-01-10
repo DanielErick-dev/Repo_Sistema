@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/delete.css' %}">
+{% endblock link %}
+{% block title %}
+    Página De Exclusão Da Tarefa
+{% endblock title %}
+{% block header %}
+    <div class="menu-content">
+        <a style="color: #fff; text-decoration: none;" class="logo" href="{% url 'index_view' %}">Strongfitness</a>
+        <nav class="header-menu">
+            <ul class="list-itens">
+                <li><a href="https://www.instagram.com/strongfitnessdf/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+{% endblock header %}
+{% block content %}
+    <h1>Excluir Usuário?</h1>
+    <h3>Tem Certeza Que Deseja Excluir O Usuário<strong> {{ academy.name }} {{ academy.lastname }}</strong>? </h3>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger btn-lg" style="margin: 1rem; text-transform: uppercase; padding: 0.8rem;">Excluir</button>
+        <a href="{% url 'index_view' %}" class="btn btn-primary btn-lg" style="margin: 1rem; text-transform: uppercase; padding: 0.8rem;">Cancelar</a>
+    </form>
+{% endblock content %}
