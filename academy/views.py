@@ -80,7 +80,6 @@ class AcademyListView(ListView):
 
 class AcademyUsuariosPendentesView(ListView):
     model = Academy
-    template_name = 'usuarios_pendentes.html'
 
     def get_context_data(self, **kwargs):
         context =  super().get_context_data(**kwargs)
