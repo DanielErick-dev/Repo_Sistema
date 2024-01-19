@@ -8,18 +8,6 @@
 {% endblock title %}
 {% block header %}
     <style>
-        
-        nav li i{
-            color: #fff;
-            text-decoration: none;
-            padding: 15px;
-            cursor: pointer;
-            
-           
-        }
-        nav li i:hover{
-            color: darkgoldenrod;
-        }
         .dropdown-menu{
             position: absolute;
             box-shadow: 0 0 2px #fff;
@@ -44,12 +32,7 @@
         #servico{
             transition: all 0.8s;  
         }
-        #servico:hover{
-            transform: scale(2);
-            color: darkorange;
-            text-shadow: 0 0 1px #fff;
-            font-weight: bold;
-        }
+        
         .dropdown:hover .dropdown-menu, .dropdown:active .dropdown-menu{
             display: block;
         }
@@ -58,13 +41,7 @@
             text-decoration: none;
             transition: all 0.8s;
         }
-        .menu-content .list-itens a:hover{
-            transform: scale(1.1);
-            color: darkorange;
-            text-shadow: 0 0 1px #fff;
-            font-weight: bold;
-            
-        }
+        
         @media screen and (max-width: 650px) {
             .menu-content .header-menu{
                 #servico{
@@ -100,7 +77,7 @@
                         <i class="fas fa-bars"></i>
                         <div class="dropdown-menu">
                             <a href="{% url 'academy_list' %}">USUÁRIOS SALVOS</a>
-                            <a href="{% url 'usuarios_pendentes_view' %}">USUÁRIOS PENDENTES</a>
+                            <a href="{% url 'academy_list' %}">USUÁRIOS PENDENTES</a>
                             
                         </div>
                     </li>

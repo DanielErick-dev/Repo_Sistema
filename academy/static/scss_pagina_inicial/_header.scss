@@ -32,7 +32,7 @@ header{
     color: #fff;
     padding: 0.1rem;
     transition: 2ms ease-in;
-    position: relative;
+    position: relative; 
 }
 
 
@@ -46,12 +46,7 @@ header{
             
         }
     }
-    
-    
-    
-    
-}
-
+ }
 
 @media screen and (max-width: 450px){
     .header-menu{
@@ -62,8 +57,7 @@ header{
             
         }
     }
-    
-    .logo{
+        .logo{
         font-size: 1.4rem;
     }
     
