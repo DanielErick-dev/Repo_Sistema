@@ -62,6 +62,7 @@
             <ul class="list-itens">
                 <li><a href="#servicos" id="servico" onclick="Irparaservicos();" scroll-behavior="smooth">Serviços</a></li>
                 <script>
+                    // utilizando javascript para navegar entre páginas //
                     console.log("executando navegação entre seções")
                     function Irparaservicos(){
                         document.getElementById("servicos").scrollIntoView({
@@ -69,8 +70,6 @@
                             duration: 3000
                         });
                     }
-
-                    
                 </script>
                 {% if logado %}
                     <li class="dropdown">
