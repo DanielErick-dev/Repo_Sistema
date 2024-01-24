@@ -1,22 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-    {% if pagina_usuarios_pendentes %}
-        Página de listagem de usuarios pendentes
-    {% else %}
-        Página de Listagem de Usuários
-
-    {% endif %}
+    Listando Usuários
 {% endblock title %}
 {% block content %}
-    {% if pagina_usuarios_pendentes %}
-        {% if usuarios_pendentes %}
-            <h1>existem usuários com vencimento pendente</h1>
-        {% else %}
-            <h1>não existe usuário com vencimento pendente</h1>
-    {% endif %}
-    {% else %}
-        {% if academy_list %}
+    {% if logado %}
+        {% if object_list %}
         <table class="table table-dark table-striped">
                 <thead>
                     <tr>
@@ -30,7 +19,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for usuario in academy_list %}
+                    {% for usuario in object_list %}
                         <tr>
                             <th scope="row">{{ usuario.pk }}</th>
                             <td>{{ usuario.name }}</td>
@@ -42,9 +31,11 @@
                         </tr>
                     {% endfor %}
                 </tbody>
-        </table> 
+        </table>
         {% else %}
-        <p style="text-transform: capitalize;">não existe usuários cadastrados</p>
+            <p>não existe usuários cadastrados</p>
         {% endif %}
+    {% else %}
+        <h1>você não possui permissão de acesso</h1>
     {% endif %}
 {% endblock content %}

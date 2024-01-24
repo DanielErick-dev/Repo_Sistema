@@ -1,10 +1,5 @@
-from typing import Any
 from django.db import models
 import arrow
-from datetime import date
-
-# Create your models here.
-
 
 
 class Academy(models.Model):
@@ -14,12 +9,13 @@ class Academy(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, null=False, blank=False,)
     vencimento = models.DateField(null=True, blank=True)
     
+    # método save para atualizar a data de vencimento do usuário
     def save(self, **kwargs):
         super().save(**kwargs)
         data_com_shift = arrow.get(str(self.created_at))
         self.vencimento = data_com_shift.shift(days=30).date()
         
-
+    # método para retornar o self.vencimento novamente
     def get_vencimento(self):
         return self.vencimento
 

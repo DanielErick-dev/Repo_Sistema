@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Listando Usuários Pendentes
+{% endblock title %}
+{% block content %}
+    {% if logado %}
+        {% if usuarios_pendentes %}
+            <h1>Existem Usuários Pendentes</h1>
+
+        {% else %}
+            <h1>Não existem Usuários Pendentes</h1>
+        {% endif %}
+
+    {% else %}
+        <h1>você não possui permissão de acesso</h1>
+    {% endif %}
+{% endblock content %}
