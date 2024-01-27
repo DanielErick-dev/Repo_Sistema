@@ -7,93 +7,29 @@
     Página Inicial Da Academia
 {% endblock title %}
 {% block header %}
-    <style>
-        .dropdown-menu{
-            position: absolute;
-            box-shadow: 0 0 2px #fff;
-            display: none;
-            width: 120px;
-            height: 200px;
-            background-color: black;
-            border-radius: 2rem;
-            padding: 10px 4px 5px 20px;
-            
-        }
-        .dropdown-menu a{
-            width: 100px;
-            margin-top: 0.4rem;
-            padding: 1.5rem 0;
-            font-size: 1.3rem;
-            font-weight: bold;
-            font-family: "Lato", sans-serif;
-            letter-spacing: 0.1rem;
-            
-        }
-        #servico{
-            transition: all 0.8s;  
-        }
-        
-        .dropdown:hover .dropdown-menu, .dropdown:active .dropdown-menu{
-            display: block;
-        }
-        .menu-content .list-itens a{
-            color: #fff;
-            text-decoration: none;
-            transition: all 0.8s;
-        }
-        
-        @media screen and (max-width: 650px) {
-            .menu-content .header-menu{
-                #servico{
-                    display: none;
-                }
-                .list-itens{
-                    gap: 0.2rem;
-                }
-                .dropdown-menu{
-                    height: 150px;
-                }
-            }
-        }
-    </style>
-    <div class="menu-content">
-        <a style="color: #fff; text-decoration: none;" class="logo" href="{% url 'index_view' %}">Strongfitness</a>
-        <nav class="header-menu">
-            <ul class="list-itens">
-                <li><a href="#servicos" id="servico" onclick="Irparaservicos();" scroll-behavior="smooth">Serviços</a></li>
-                <script>
-                    // utilizando javascript para navegar entre páginas //
-                    console.log("executando navegação entre seções")
-                    function Irparaservicos(){
-                        document.getElementById("servicos").scrollIntoView({
-                            behavior: "smooth",
-                            duration: 3000
-                        });
-                    }
-                </script>
-                {% if logado %}
-                    <li class="dropdown">
-                        <i class="fas fa-bars"></i>
-                        <div class="dropdown-menu">
-                            <a href="{% url 'academy_list' %}">USUÁRIOS SALVOS</a>
-                            <a href="{% url 'academy_usuarios_pendentes'%}">USUÁRIOS PENDENTES</a>
-                        </div>
-                    </li>
-                    
-                {% endif %}
-                <li><a href="https://www.instagram.com/strongfitnessdf/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="https://www.instagram.com/strongfitnessdf/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-            </ul>
-        </nav>
+    <div class="logo">
+        <p>strongfitness</p>
     </div>
+    <div class="menu">
+        <ul class="list-menu">
+           <li><a href="#servicos" >serviços<span></span></a></li>
+           <li><a href="#footer">mais informações<span></span></a></li>
+           <li><a href="#">sobre<span></span></a></li>
+        </ul>
+    </div>
+        
+                
 {% endblock header %}
 {% block content %}
-    <div class="main-content">
-        <h1 class="primary-text">A Dor É Inevitável, O Sofrimento É Opcional</h1>
-        <h2 class="second-text">Inscreva-se Agora E Mude De Vida</h2>
-        <div class="btns">
-            <a class="btn-ins" id="btn" href="{% url 'cadastro_view' %}">inscrever-se na academia</a>
-            <a class="btn-agendar" href="#">Realizar Pagamento</a>
+    <div class="content">
+        <div class="text-content">
+            
+            <h1>Seja bem vindo a strong fitness</h1>
+            
+        </div>
+        <div class="img-content">
+            <img src="{% static 'images/casal_gym-removebg-preview.png' %}" alt="imagem de casal de academia" width="100%" height="100%">
+            
         </div>
     </div>
 {% endblock content %}
@@ -148,6 +84,12 @@
     </div>
     <script src="{% static 'js/script.js' %}"></script>
 {% endblock section1 %}
+
+{%  block footer %}
+    <div class="footer" id="footer">
+        
+    </div>
+{% endblock footer %}
 
 
 

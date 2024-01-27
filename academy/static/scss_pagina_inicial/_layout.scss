@@ -1,142 +1,107 @@
 main{
+    width: 100vw;
     height: 93vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: auto;
-}
-
-.main-content{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100px;
-}
-
-/* texto conteúdo principal */
-
-.primary-text{
-    max-width: 850px;
-    font-size: 5rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    color: #fff;
-    text-transform: uppercase;
-}
-
-.second-text{
-    margin-bottom: 7rem;
-    font-size: 2rem;
-    color: rgb(165, 165, 165);
-    text-transform: uppercase;
-}
-
-/* botões */
-
-
-.btns{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+    overflow: hidden;
 
 }
-.btn-ins, .btn-agendar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    
 
-}
-.btns a{
-    width: 250px;
-    height: 60px;
-    cursor: pointer;
-    border: 1px solid #fff;
-    color: #fff;
-    text-transform: uppercase;
-    background-color: transparent;
-    font-weight: bold;
-    letter-spacing: 0.2rem;
-    border-radius: 20px;
-    position: relative;
-    transition: 1.5s;
-
-}
-.btns a:hover{
-    color: rgb(251, 255, 0);
-    border: none;
-}
-.btns a::before{
-    content: ' ';
-    border-radius: 20px;
-    position: absolute;
+main::before{
+    content: '';
+    top: 0;
     left: 0;
-    bottom: 0;
-    width: 0%;
-    height: 60px;
-    background: rgb(61, 61, 61);
-    z-index: -1;
-    transition: 1s;
-
-}
-
-.btns a:hover:before{
+    position: absolute;
     width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: linear-gradient(to bottom, rgba(39, 39, 39, 0.8), rgba(20, 20, 20, 1)), url("../images/imagem_de_fundo_academia.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+    overflow-x: hidden;
+
+
 }
-
-
-@media screen and (max-width: 650px){
-    .primary-text{
-        width: 550px;
-        font-size: 2.5rem;
-        
-    }
-    .second-text{
-        font-size: 1.3rem;
-        
-    }
-    .btns a{
-        width: 200px;
-        height: 60px;
-        letter-spacing: 0.1rem;
-        border-radius: 16px;
-        transition: 1.5s;
+.content{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
     
-    }
-    .main-content{
-        min-height: 60vh;
-
+    .text-content{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        width: 80%;
         h1{
-            font-size: 34px;
-            padding: 0 14px;
-            width: 100%;
+            text-align: center;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-family: "Lato", sans-serif;
+            font-style: italic;
+            color: #fff;
+            font-size: 50px;
+            padding: 3rem;
+      
         }
-
-        h2{
-            font-size: 14px;
+    }
+    .img-content{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        
+        img{
+            width: 50%;
+            height: 100%;
         }
-    } 
+    }
 }
 
 
-@media screen and (max-width: 450px){
-    .primary-text{
-        width: 300px;
-        font-size: 2rem;
+@media screen and (max-width: 900px) {
+    .content{
+        flex-direction: column;
+        flex: 1;
+        min-width: 100%;
+        max-height: 88vh;
         
     }
-    .second-text{
-        font-size: 1.4rem;
-        
-    }
-    .btns a{
-        width: 150px;
-        height: 60px;
-        text-align: center;
-        border-radius: 14px;
-        transition: 1.5s;
+
     
+    .text-content{
+        justify-content: end;
+        
+        h1{
+            font-size: 20px;
+            
+        }
+
+        
     }
-}
+    .img-content{
+        max-height: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            width: 500px;
+            min-height: 100%;
+            min-width: 300px;
+        }
+    }
+  }
+
+
+
+  // FOOTER
+  .footer{
+    width: 100vw;
+    height: 100vh;
+    background: $azul-escuro
+  }
