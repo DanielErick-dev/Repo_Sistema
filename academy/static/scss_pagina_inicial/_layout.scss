@@ -103,5 +103,38 @@ main::before{
   .footer{
     width: 100vw;
     height: 100vh;
-    background: $azul-escuro
+    background: $azul-escuro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-direction: column;
+    .footer-itens{
+        width: 100%;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+    h1{
+        color: #fff;
+        font-family: "Lato", sans-serif;
+        text-transform: capitalize;
+    }
+    .footer-itens li a i{
+        color: #fff;
+        font-size: 3.5rem;
+    }
+    img{
+        width: 20%;
+        border-radius: 50px;
+
+    }
+
   }
+
+  
+
+
+
+  
