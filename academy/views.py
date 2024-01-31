@@ -1,5 +1,7 @@
 from datetime import datetime
-from django.views.generic import TemplateView, CreateView, ListView, DeleteView
+from typing import Any
+from django.http import HttpRequest, HttpResponse
+from django.views.generic import TemplateView, CreateView, ListView, DeleteView, FormView
 from .models import Academy
 from datetime import date
 from django.urls import reverse_lazy
@@ -27,9 +29,19 @@ class AcademyDeleteView(DeleteView):
     model = Academy
     success_url=reverse_lazy('index_view')
 
+class AcademyAdministrativeView(ListView):
+    model = Academy
+    template_name = 'academy/administrative_view.html'
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["logado"] = IndexView.validando_login(self, request=self.request)
+        return context
+    
+
 class CadastroView(CreateView):
     template_name = 'academy/create_view.html'
+    
     model = Academy
     fields = ["name", "lastname", "contact"]
     success_url = reverse_lazy("index_view")

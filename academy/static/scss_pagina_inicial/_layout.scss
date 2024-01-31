@@ -101,15 +101,34 @@ main::before{
 
   // FOOTER
   .footer{
+    border-top: 1px  solid #ddd;
     width: 100vw;
-    height: 70vh;
+    height: 50vh;
     background: $azul-escuro;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
     flex-direction: column;
+    background: linear-gradient(to bottom, $azul-escuro, #032547);
     
+    .text-central{
+        display: flex;
+        width: 100%;
+        height: 10vh;
+        
+        align-items: center;
+        justify-content: center;
+
+        h1{
+            color: #fff;
+            text-transform: uppercase;
+            font-family: "Lato", sans-serif;
+            font-size: 3rem;
+            font-style: italic;
+            font-weight: bold;
+        }
+    }
     .footer-itens{
         
         display: flex;
@@ -117,8 +136,30 @@ main::before{
         align-items: center;
         width: 100%;
         height: 35vh;
+        
         border-bottom: #fff 1px solid;
+        .caixa-descricao{
+            display: flex;
 
+            .paragrafos{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: start;
+                margin-left: 20px;
+                margin-right: 20px;
+                padding: 10px;
+                box-shadow: 0px 0px 4px #fff;
+
+                p{
+                    text-align: start;
+                    color: #fff;
+                    font-size: 1.3rem;
+                    font-family: "Lato", sans-serif;
+                    text-transform: capitalize;
+                }
+            }
+        }
         li{
             list-style: none;
             
@@ -159,8 +200,8 @@ main::before{
     justify-content: center;
     align-items: center;
     width: 100%;
-    background: $azul-escuro;
-    height: 10vh;
+    background: linear-gradient(to bottom, #032547, #05417e);
+    height: 20vh;
     
 
     .end-footer-itens{
@@ -174,13 +215,14 @@ main::before{
                 padding: 10px;
                 font-size: 3rem;
                 color: #fff;
-                border: 3px solid rgb(94, 93, 93);
+                border: 3px solid rgb(252, 247, 247);
                 padding: 20px;
                 border-radius: 50%;
             }
         }
     }
 }
+
 
   
 
