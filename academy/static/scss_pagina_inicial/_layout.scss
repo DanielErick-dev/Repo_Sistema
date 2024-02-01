@@ -162,7 +162,9 @@ main::before{
         }
         li{
             list-style: none;
-            
+            a{
+                cursor: default;
+            }
             a i{
                 z-index: 9;
                 font-size: 4rem;

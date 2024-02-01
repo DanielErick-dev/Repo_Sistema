@@ -244,6 +244,9 @@ main::before {
 .footer .footer-itens li {
   list-style: none;
 }
+.footer .footer-itens li a {
+  cursor: default;
+}
 .footer .footer-itens li a i {
   z-index: 9;
   font-size: 4rem;

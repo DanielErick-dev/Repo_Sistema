@@ -1,10 +1,10 @@
 from datetime import datetime
-from typing import Any
-from django.http import HttpRequest, HttpResponse
-from django.views.generic import TemplateView, CreateView, ListView, DeleteView, FormView
+from django.views.generic import TemplateView, CreateView, ListView, DeleteView
+from django.views.generic.edit import FormView
 from .models import Academy
 from datetime import date
 from django.urls import reverse_lazy
+from .forms import AcademyForm
 
 
 class IndexView(TemplateView):
@@ -29,13 +29,21 @@ class AcademyDeleteView(DeleteView):
     model = Academy
     success_url=reverse_lazy('index_view')
 
-class AcademyAdministrativeView(ListView):
-    model = Academy
+class AcademyAdministrativeView(FormView):
+    form_class = AcademyForm
     template_name = 'academy/administrative_view.html'
+    success_url = reverse_lazy('administrative_view')
+    model = Academy
+    
+    def form_valid(self, form):
+        form.instance.save()
+        return super().form_valid(form)
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["logado"] = IndexView.validando_login(self, request=self.request)
+        context["usuarios"] = Academy.objects.all()
+        context["usuários_pendentes"] = AcademyUsuariosPendentesView.verificando_vencimentos_pendentes(self)
         return context
     
 
@@ -121,19 +129,24 @@ class AcademyUsuariosPendentesView(ListView):
     # listando usuários pendentes
     model = Academy
     template_name = 'academy/list_pendentes.html'
-    def get_context_data(self, **kwargs):
-        context =  super().get_context_data(**kwargs)
-        def verificando_vencimentos_pendentes(self, **kwargs):
+
+    def verificando_vencimentos_pendentes(self):
             vencimentos_pendentes = False
             data_atual = date.today()
-            usuarios = self.get_queryset()
+            lista_de_informacoes = [vencimentos_pendentes]
+            usuarios = Academy.objects.all()
             for usuario in usuarios:
-                if usuario.vencimento < datetime.now().date():
-                    vencimentos_pendentes = True
-                    break     
-            return vencimentos_pendentes
+                if usuario.vencimento is not None:
+                    if usuario.vencimento < datetime.now().date():
+                        vencimentos_pendentes = True
+                        lista_de_informacoes.append(usuario.nome)
+
+            return lista_de_informacoes
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        
         # usando método para verificar se existem usuários pendentes
-        context['usuarios_pendentes'] = verificando_vencimentos_pendentes(self)
+        context['usuarios_pendentes'] = self.verificando_vencimentos_pendentes()
 
         # usando método de verificação de login do ADMIN
         context['logado'] = IndexView.validando_login(self, request=self.request)
