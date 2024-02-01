@@ -1,91 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block link %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/cadastro.css' %}">
-{% endblock link %}
-{% block title %}
-página de inscrição
-{% endblock title %}
-{% block header %}
-    <div class="menu-content">
-        <a style="color: #fff; text-decoration: none;" class="logo" href="{% url 'index_view' %}">Strongfitness</a>
-        <nav class="header-menu">
-            <ul class="list-itens">
-                <li><a href="https://www.instagram.com/strongfitnessdf/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="https://www.instagram.com/strongfitnessdf/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-            </ul>
-        </nav>
-    </div>
-{% endblock header %}
 
 {% block content %}
-    <div class="container">
-        <div class="caixa">
-            <div class="box-image">
-                <img src="{% static 'images/img_academy.jpg' %}" alt="imagem da logo da academia">
-            </div>
-            <div class="box-form">
-                <form method="POST" class="form">
-                    {% if erro_contato %}
-                        <h3 style="font-size: 1.5rem; color: red;" class="erro">{{ erro_contato }}</h3>
-                    {% endif %}
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <div class="btns">
-                        <button type="submit">Salvar</button>
-                        <a class="btn-cancel" href="{% url 'index_view' %}">Cancelar</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    
+    <form method="POST" class="formulario" style="display: none;" action="{% url 'administrative_view' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+        <a class="btn-cancel" href="{% url 'index_view' %}">Cancelar</a>
+    </form>
 {% endblock content %}
-
-{% block section1 %}
-    <div class="section-form">
-        <div class="container-cell">
-            <div class="caixa-cell">
-                <div class="box-image-cell">
-                    <img src="{% static 'images/img_academy.jpg' %}" alt="imagem da logo da academia">
-                </div>
-                <div class="box-form-cell">
-                    <form method="POST" class="form-cell">
-                        {% if erro_contato %}
-                            <style>
-                                form input{
-                                    animation: shake 360ms ;
-                                }
-
-                                @keyframes shake{
-                                    25% {transform: translateX(5px);}
-                                    50% {transform: translateX(-4px);}
-                                    100% {transform: translateX(4px);}
-                                }
-                            </style>
-                            <h3 style="font-size: 1.5rem; color: red;" class="erro-cell">{{ erro_contato }}</h3>
-                        {% endif %}
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <div class="btns-cell">
-                            <button type="submit">Salvar</button>
-                            <a class="btn-cancel-cell" href="{% url 'index_view' %}">Cancelar</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        // iniciliazando sessão secundária responsiva //
-        const caixa = document.querySelector(".caixa");
-        const section = document.querySelector(".section-form");
-        var LarguraDatela = document.body.clientWidth;
-        console.log(LarguraDatela);
-        if (LarguraDatela <= 970){
-            caixa.style.display = "none";
-            section.style.display = "flex";  
-            console.log("seção sendo iniciada")
-        }
-    </script>
-{% endblock section1 %}
+    

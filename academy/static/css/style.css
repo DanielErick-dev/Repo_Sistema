@@ -364,6 +364,90 @@ main::before {
     text-align: center;
   }
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container-geral {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+.container-geral .text-central {
+  width: 100%;
+  height: 12vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #06121e;
+}
+.container-geral .text-central h1 {
+  font-style: italic;
+  font-family: "Lato", sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+}
+.container-geral .container-geral-de-busca {
+  width: 50%;
+  height: 20vh;
+  background: rgb(7, 34, 83);
+  display: flex;
+  flex: 1 1;
+  justify-content: center;
+  align-items: center;
+}
+.container-geral .container-geral-de-busca .form-busca {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.container-geral .container-geral-de-busca .form-busca #name {
+  color: #000;
+  border-radius: 0.8rem;
+  box-shadow: 0 1px 4px #000;
+  padding: 0.5rem;
+}
+.container-geral .container-geral-de-busca .form-busca #botao-buscar {
+  color: #000;
+  padding: 5px;
+}
+.container-geral .container-geral-de-busca .resposta-busca {
+  border: 2px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  padding: 1.5rem 1.5rem;
+}
+.container-geral .container-geral-de-busca .resposta-busca p {
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  color: #fff;
+}
+.container-geral .create p {
+  width: 30%;
+  color: #000;
+  font-size: 1rem;
+}
+.container-geral button {
+  margin-bottom: 10px;
+  width: 200px;
+  height: 50px;
+  color: #fff;
+  background: #000;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 a {
   color: #fff;
   text-decoration: none;
