@@ -91,14 +91,14 @@ class AcademyAdministrativeView(FormView):
             context = self.get_context_data(erro_contato=erro_contato+', aperte em "cadastrar usuário" e insira os dados corretos novamente por favor')
             return self.render_to_response(context)
         else:
-            context = self.get_context_data(erro_contato='usuário cadastrado com sucesso')
-            return self.render_to_response(context)
-        # salvando formulário com os dados submetidos usando o método save
-        form.instance.save()
-        return super().form_valid(form)
+            form.instance.save()
+            return super().form_valid(form)
+        
+        
     
     def post(self, request, *args, **kwargs):
         name = request.POST.get('name')
+        print(name)
         usuario = Academy.objects.filter(name=name)
         print('executando método post')
         print(usuario)

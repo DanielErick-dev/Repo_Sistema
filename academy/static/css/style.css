@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -365,87 +366,120 @@ main::before {
   }
 }
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  outline: 0;
 }
 
-.container-geral {
-  display: flex;
-  flex-direction: column;
+html {
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
+  font-size: 62.5%;
+  font-family: "Lato", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.1), #06121e), url("../images/fundo-digital-gym.jpg");
+}
+
+main {
   width: 100vw;
   height: 100vh;
 }
-.container-geral .text-central {
+
+.text-central {
   width: 100%;
-  height: 12vh;
+  height: 10%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #06121e;
+  margin: 0 auto;
 }
-.container-geral .text-central h1 {
-  font-style: italic;
-  font-family: "Lato", sans-serif;
+.text-central h1 {
+  color: #000;
   text-transform: uppercase;
-  color: #fff;
+  font-style: italic;
+  font-family: "Lora", sans-serif;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000;
 }
-.container-geral .container-geral-de-busca {
-  width: 50%;
-  height: 20vh;
-  background: rgb(7, 34, 83);
-  display: flex;
-  flex: 1 1;
-  justify-content: center;
-  align-items: center;
-}
-.container-geral .container-geral-de-busca .form-busca {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+
+.section1 {
   height: 100%;
-}
-.container-geral .container-geral-de-busca .form-busca #name {
-  color: #000;
-  border-radius: 0.8rem;
-  box-shadow: 0 1px 4px #000;
-  padding: 0.5rem;
-}
-.container-geral .container-geral-de-busca .form-busca #botao-buscar {
-  color: #000;
-  padding: 5px;
-}
-.container-geral .container-geral-de-busca .resposta-busca {
-  border: 2px solid #000;
-  display: flex;
-  justify-content: center;
-  align-items: start;
   width: 100%;
-  height: 100%;
+  display: flex;
+  align-items: center;
   flex-direction: column;
-  padding: 1.5rem 1.5rem;
+  background: #f8f9fa;
+  position: relative;
 }
-.container-geral .container-geral-de-busca .resposta-busca p {
-  font-family: "Lato", sans-serif;
-  font-weight: 600;
-  color: #fff;
+.section1 .search-form {
+  border: 2px solid black;
+  width: 40%;
+  height: 10%;
 }
-.container-geral .create p {
-  width: 30%;
-  color: #000;
-  font-size: 1rem;
-}
-.container-geral button {
-  margin-bottom: 10px;
-  width: 200px;
-  height: 50px;
-  color: #fff;
-  background: #000;
-  padding: 10px;
+.section1 .search-form .form {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
+  background: rgb(63, 105, 243);
+}
+.section1 .search-form .form #name {
+  width: 30%;
+  height: 50%;
+  color: #000;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  box-shadow: 1px 1px 2px #000;
+  background: rgba(226, 228, 248, 0.932);
+}
+.section1 .search-form .form #search-button {
+  width: 10%;
+  height: 50%;
+  background: rgb(4, 4, 107);
+  color: #fff;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 1px 1px 2px #000;
+}
+.section1 .search-results {
+  border: 2px solid black;
+  width: 40%;
+  height: 70%;
+}
+.section1 .search-results .box-search {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section1::before {
+  content: "";
+  display: block;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.1), #06121e), url("../images/fundo-digital-gym.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  opacity: 0.9;
 }
 
 a {
