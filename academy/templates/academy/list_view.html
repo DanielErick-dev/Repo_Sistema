@@ -13,6 +13,7 @@
                         <th scope="col">nome</th>
                         <th scope="col">sobrenome</th>
                         <th scope="col">contato</th>
+                        <th scope= "col">cpf</th>
                         <th scope="col">data de criação</th>
                         <th scope="col">data de vencimento</th>
                         <th scope="col">Ações da página de listagem</th>
@@ -25,6 +26,7 @@
                             <td>{{ usuario.name }}</td>
                             <td>{{ usuario.lastname }}</td>
                             <td>{{ usuario.contact }}</td>
+                            <td>{{ usuario.cpf }}</td>
                             <td>{{ usuario.created_at }}</td>
                             <td>{{ usuario.vencimento }}</td>
                             <td><a href="{% url 'delete_view' pk=usuario.pk %}" class="btn btn-outline-danger">Deletar Usuário</a></td>

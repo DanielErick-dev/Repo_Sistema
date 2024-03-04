@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+html {
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
+  font-size: 62.5%;
+  font-family: "Lato", sans-serif;
+  scroll-behavior: smooth;
+  
+  
+}
+
+.main{
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.1), #06121e), url("../images/fundo-digital-gym.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    overflow: hidden;
+}
+.options{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: 10%;
+    a{
+        font-size: 1.5rem;
+        font-family: "Lato", sans-serif;
+        padding: 1rem 1.2rem;
+        letter-spacing: 0.2rem;
+        box-shadow: 0 0 3px #fff;
+    }
+}
+// texto central da página
+.text-central{
+    width: 100%;
+    height: 5%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    margin: 0 auto;
+    
+    h1{
+        color: #fff;
+        text-transform: uppercase;
+        font-style: italic;
+        font-family: "Lora", sans-serif;
+        text-align: center;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px #000;    
+    }
+}
+// seção de busca
+.section1{
+    padding: 25px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+   
+    
+
+    // caixa do formulário de busca
+    .search-form{
+        border: 2px solid black;
+        width: 40%;
+        height: 10%;
+
+
+        // formulário de busca
+        .form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background: rgb(63, 105, 243);
+            box-shadow: 1px 1px 2px #000;
+            
+            
+           
+            
+            // input  da barra de pesquisa
+            #name{
+                width: 30%;
+                height: 50%;
+                color: #000;
+                font-size: 1.5rem;
+                text-transform: capitalize;
+                box-shadow: 1px 1px 2px #000;
+                background: rgba(226, 228, 248, 0.932);
+            }
+            // botão da barra de pesquisa
+            #search-button{
+                width: 10%;
+                height: 50%;
+                background: #024180;
+                font-size: 1.8rem;
+                text-transform: uppercase;
+                font-family: "Lato", sans-serif;
+                text-align: center;
+                font-weight: bold;
+                box-shadow: 1px 1px 2px #000; 
+                color: #fff;
+                cursor: pointer;
+
+                
+            }
+        }
+    }
+
+
+
+    // caixa de resultados da busca
+    .search-results{
+        border: 2px solid black;
+        width: 40%;
+        height: 100%;
+        
+        
+        // caixa com as respostas
+        .box-search{
+            width: 100%;
+            height: 85%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            gap: 2rem;
+            padding: 2.5rem;
+            h1, p{
+
+                color: #fff;
+                text-transform: capitalize;
+                font-family: "Sora", sans-serif;
+                
+            }
+            h1{
+                
+                font-size: 2rem;
+                
+            }
+
+            p{
+                font-size: 1.5rem;
+            }
+        }
+    }
+}

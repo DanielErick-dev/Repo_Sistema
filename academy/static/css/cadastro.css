@@ -1,1 +1,121 @@
-/*# sourceMappingURL=cadastro.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+* {
+  box-sizing: border;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(12, 12, 233, 0.3019607843);
+}
+
+.container {
+  width: 80%;
+  height: 80vh;
+  display: flex;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
+}
+
+.form-image {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(253, 227, 167, 0.8431372549);
+  padding: 1rem;
+}
+
+.form-image img {
+  width: 31rem;
+}
+
+.form {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 3rem;
+}
+
+form {
+  width: 100%;
+}
+
+.form-header {
+  width: 100%;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-button {
+  display: flex;
+  align-items: center;
+}
+
+.login-button button {
+  border: none;
+  background: #6c63ff;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.login-button button:hover {
+  background: rgba(107, 99, 255, 0.9450980392);
+}
+
+.form-header .title h1 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.form-header .title h1::after {
+  content: "";
+  display: block;
+  width: 5rem;
+  background: #6c63ff;
+  height: 0.3rem;
+  margin: 0 auto;
+  position: absolute;
+  border-radius: 10px;
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem 0;
+  width: 100%;
+}
+.input-group input {
+  margin: 0.6rem 0;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  border: 1px solid #000;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1098039216);
+}
+.input-group input:hover {
+  background: rgba(238, 238, 238, 0.4588235294);
+}
+.input-group input:focus-visible {
+  outline: 1px solid #6c63ff;
+}
+.input-group label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.7529411765);
+  text-transform: uppercase;
+}/*# sourceMappingURL=cadastro.css.map */

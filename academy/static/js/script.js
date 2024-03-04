@@ -1,5 +1,8 @@
 function vizualizando_elemento(classname) {
-    console.log("executando função de vizualizar cadastro de usuário");
+    console.log("executando função de vizualização");
     const element = document.querySelector(`.${classname}`)
-    element.style.display = "block";
+    console.log(element)
+    element.style.visibility = 'visible';
+
 }
+

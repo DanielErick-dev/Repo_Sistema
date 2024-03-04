@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cadastro.css' %}">
+{% endblock link %}
+{% block content %}
+    <div class="container">
+        <div class="form-image">
+            <img src="{% static 'images/undraw_gym.svg' %}" alt="imagem SVG de academia">
+        </div>
+        <div class="form">
+            <form method='POST' action="{% url 'cadastro' %}">
+                {% csrf_token %}
+                <div class="form-header">
+                    <div class="title">
+                        <h1>cadastro</h1>
+                    </div>
+                    <div class="login-button">
+                        <button type="submit">Cadastrar</button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    {{ form }}
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

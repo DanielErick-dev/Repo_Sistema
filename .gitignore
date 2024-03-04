@@ -13,3 +13,5 @@ template/*
 htmlcov/*
 
 .venv
+
+script.py

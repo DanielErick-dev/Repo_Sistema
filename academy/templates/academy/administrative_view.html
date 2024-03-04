@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Seção Administrativa
+{% endblock title %}
+
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/administrative.css' %}">
+{% endblock link %}
+
+{% block content %}
+    {% if logado %}
+        <div class="main">
+            <!-- seção administrativa -->
+            <div class="text-central">
+                <h1>seção administrativa</h1>
+            </div>
+            <div class="options">
+                <a href="{% url 'cadastro' %}" class="btn btn-primary">Cadastrar Usuários</a>
+                <a href="{% url 'academy_list' %}" class="btn btn-primary">listar usuários</a>
+                <a href="{% url 'academy_list' %}" class="btn btn-primary">Deletar usuários</a>
+                <a href="#" class="btn btn-primary" onclick="vizualizando_elemento('section1');">procurar usuário</a>
+                <a href="#" class="btn btn-primary">atualizar pagamento do usuário</a>
+                <a href="{% url 'academy_usuarios_pendentes' %}" class="btn btn-primary">listar usuários pendentes</a>
+            </div> 
+            <section class="section1" style="visibility: hidden;"> 
+                <!-- busca de usuário no banco de dados -->
+                <div class="search-form">
+                    <form action="{% url 'administrative_view' %}" method="POST" class="form">
+                        {% csrf_token %}
+                        <input type="text" name="name" placeholder="nome do usuário" id="name"/>
+                        <button type="submit" id="search-button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </form>
+                </div>
+                <!-- informações sobre o usuário ou mensagem de erro -->
+                <div class="search-results">
+                    <div class="box-search">
+                        {% if usuario %}
+                            {% for informacao in usuario %}
+                                <h1>nome:</h1>
+                                <p> {{ informacao.name }} </p>
+                                <h1>sobrenome:</h1>
+                                <p> {{ informacao.lastname }} </p>
+                                <h1>contato:</h1>
+                                <p> {{ informacao.contact }} </p>
+                                <h1>data de criação:</h1>
+                                <p> {{ informacao.created_at }} </p>
+                                <h1>data de vencimento:</h1>
+                                <p> {{ informacao.vencimento }} </p>
+                            {% endfor %}
+                        {% else %}
+                            <p id="not-user">usuário não existe ou foi digitado errado</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <script src="{% static 'js/script.js' %}"></script>
+            </section>
+        </div>
+    {% else %}
+        <h1>voce não possui permissão de acesso</h1>
+    {% endif %}
+{% endblock content %}
+
