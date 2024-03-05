@@ -1,14 +1,11 @@
 from datetime import datetime
-from typing import Any
-from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, CreateView, ListView, DeleteView
+from django.views.generic import TemplateView, ListView, DeleteView
 from django.views.generic.edit import FormView
 from .models import Academy
 from datetime import date
 from django.urls import reverse_lazy
 from .forms import AcademyForm
-import arrow
 
 class IndexView(TemplateView):
     template_name = "academy/index_view.html"
@@ -106,7 +103,7 @@ class AcademyUsuariosPendentesView(ListView):
                 if usuario.vencimento is not None:
                     if usuario.vencimento.date() < datetime.now().date():
                         vencimentos_pendentes = True
-                        lista_de_informacoes.append(usuario.nome)
+                        lista_de_informacoes.append(usuario.name)
 
             return lista_de_informacoes
     def get_context_data(self, **kwargs):

@@ -1,8 +1,4 @@
-from typing import Any, Mapping
 from django import forms
-from django.core.files.base import File
-from django.db.models.base import Model
-from django.forms.utils import ErrorList
 from .models import Academy
 from django.forms import ValidationError
 
@@ -18,8 +14,7 @@ class AcademyForm(forms.ModelForm):
         self.fields['lastname'].widget.attrs['placeholder'] = 'lastname'
         self.fields['contact'].widget.attrs['placeholder'] = '(99) 9-9999-9999'
         self.fields['cpf'].widget.attrs['placeholder'] = '999.999.999-99'
-        #self.fields['name'].required = False
-        # self.fields['lastname'].required = False
+        
         
     def clean_lastname(self):
         lastname = self.cleaned_data['lastname']
