@@ -132,7 +132,3 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "academy/static")]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# CONFIGURAÇAO DO SUPER USUARIO
-# USER = Daniel
-# EMAIL = danzzart007@gmail.com
-# PASSWORD = erick292120

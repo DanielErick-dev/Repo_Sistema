@@ -61,6 +61,7 @@ html {
         text-shadow: 1px 1px 2px #000;    
     }
 }
+
 // seção de busca
 .section1{
     padding: 25px;
@@ -68,11 +69,8 @@ html {
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
-    
-   
-    
-
     // caixa do formulário de busca
     .search-form{
         border: 2px solid black;

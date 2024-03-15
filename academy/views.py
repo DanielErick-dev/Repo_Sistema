@@ -1,12 +1,14 @@
 from datetime import datetime
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView, ListView, DeleteView
 from django.views.generic.edit import FormView
 from .models import Academy
 from datetime import date
 from django.urls import reverse_lazy
 from .forms import AcademyForm
-
+from datetime import timedelta
+import pyttsx3
+from time import sleep
 class IndexView(TemplateView):
     template_name = "academy/index_view.html"
     # verificando se o usuário está logado no ADMIN do sistema
@@ -58,7 +60,6 @@ class AcademyAdministrativeView(FormView):
         context = super().get_context_data(**kwargs)
         context["logado"] = IndexView.validando_login(self, request=self.request)
         context["usuarios"] = Academy.objects.all()
-        context["usuários_pendentes"] = AcademyUsuariosPendentesView.verificando_vencimentos_pendentes(self)
         return context
     
 
@@ -76,6 +77,45 @@ def CriandoUsuario(request):
     }
     print(context)
     return render(request, 'academy/academy_form.html', context)
+
+
+def Academy_search(request):
+    context = {}
+    if str(request.method) == 'POST':
+        cpf = request.POST.get('input_cpf')
+        try:
+            usuario = get_object_or_404(Academy, cpf=cpf)
+        except:
+            context['erro'] = '!Erro, usuário não existe'
+        else:
+            context['usuario'] = usuario
+            
+    return render(request, 'academy/academy_search.html', context)
+
+
+def Atualizando_pagamento_usuario(request):
+    context = {}
+    engine = pyttsx3.init()
+    if str(request.method) == 'POST':
+        cpf = request.POST.get('input_cpf')
+        try:
+            usuario = get_object_or_404(Academy, cpf=cpf)
+        except:
+            context['erro'] = '!Erro, usuário não existe'
+            engine.say(context['erro'])
+            engine.runAndWait()
+        else:
+            engine.say('usuário atualizado com sucesso')
+            engine.runAndWait()
+            usuario.created_at = datetime.now()
+            data_vencimento = datetime.now() + timedelta(days=30)
+            usuario.vencimento = data_vencimento.date()
+            usuario.save()
+            return redirect('administrative_view')
+    return render(request, 'academy/academy_atualizar_pagamento.html', context)
+
+
+
 class AcademyListView(ListView):
     # listando usuários salvos
     model = Academy
@@ -87,33 +127,18 @@ class AcademyListView(ListView):
         return context
         
         
-
-
-class AcademyUsuariosPendentesView(ListView):
-    # listando usuários pendentes
-    model = Academy
-    template_name = 'academy/list_pendentes.html'
-
-    def verificando_vencimentos_pendentes(self):
-            vencimentos_pendentes = False
-            data_atual = date.today()
-            lista_de_informacoes = [vencimentos_pendentes]
-            usuarios = Academy.objects.all()
-            for usuario in usuarios:
-                if usuario.vencimento is not None:
-                    if usuario.vencimento.date() < datetime.now().date():
-                        vencimentos_pendentes = True
-                        lista_de_informacoes.append(usuario.name)
-
-            return lista_de_informacoes
-    def get_context_data(self, **kwargs):
-        context =  super().get_context_data(**kwargs)
-        
-        # usando método para verificar se existem usuários pendentes
-        context['usuarios_pendentes'] = self.verificando_vencimentos_pendentes()
-
-        # usando método de verificação de login do ADMIN
-        context['logado'] = IndexView.validando_login(self, request=self.request)
-        return context
-    
-        
+def Listando_usuarios_pendentes(request):
+    context = {}
+    usuarios = Academy.objects.all()
+    vencimentos_pendentes = False
+    for usuario in usuarios:
+        if usuario.vencimento.date() < datetime.now().date():
+            print(f'data de vencimento do usuário: {usuario.vencimento.date}\ndata atual: {datetime.now().date()}')
+            vencimentos_pendentes = True
+    if vencimentos_pendentes:
+        context['usuarios_pendentes'] = 'existem usuários pendentes'
+    if request.user.is_authenticated:
+        context['logado'] = True
+    else:
+        pass
+    return render(request, 'academy/list_pendentes.html', context)

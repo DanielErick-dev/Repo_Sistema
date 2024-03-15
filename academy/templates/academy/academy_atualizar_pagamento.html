@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Atualizando Pagamento De Usuário
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <form action="{% url 'academy_atualizacao' %}" method="post" class="form-atualizacao">
+            {% csrf_token %}
+            <div class="titulo-atualizacao">
+                <h1>insira o CPF do usuário</h1>
+            </div>
+            <div class="input-atualizacao">
+                <input type="text" name="input_cpf" placeholder="999999999-99">
+            </div>
+            
+            <div class="btns-atualizacao">
+                <button type="submit">Enviar CPF</button>
+                <a href="{% url 'administrative_view' %}">Cancelar</a>
+            </div>
+            <div class="erro">
+                <p>{{ erro }}</p>
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}

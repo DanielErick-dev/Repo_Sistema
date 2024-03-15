@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Procurando Usuário
+{% endblock title %}
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
+{% endblock link %}
+{% block content %}
+    <form action="{% url 'academy_search' %}" method="post">
+        {% csrf_token %}
+        <label for="search">Insira o CPF de busca do usuário</label>
+        <input type="text" name="input_cpf" id="search" placeholder="999999999-99">
+        <button type='submit'>Procurar</button>
+    </form>
+    {% if usuario %}
+        {% for message in messages %}
+            {{ message.message }}
+        {% endfor %}
+
+        <h1>informações do usuário: {{ usuario.name }}</h1>
+        <p>nome: {{ usuario.name }}</p>
+        <p>sobrenome: {{ usuario.lastname }}</p>
+        <p>cpf: {{ usuario.cpf }}</p>
+        <p>última data de pagamento ou data de criação: {{ usuario.created_at }}</p>
+        <p>data de vencimento do pagamento: {{ usuario.vencimento }}</p>
+    {% endif %}
+    
+    
+    {% if erro %}
+        <p>{{ erro }}</p>
+    {% endif %}
+{% endblock content %}

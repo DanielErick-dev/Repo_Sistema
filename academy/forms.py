@@ -5,7 +5,7 @@ from django.forms import ValidationError
 class AcademyForm(forms.ModelForm):
     
     class Meta:
-        model = Academy
+        model = Academy 
         fields = ['name', 'lastname', 'contact', 'cpf']
 
     def __init__(self, *args, **kwargs):
@@ -46,9 +46,8 @@ class AcademyForm(forms.ModelForm):
         cpf = self.cleaned_data['cpf']
         teste_cpf = Academy.objects.filter(cpf=cpf)
         
-        if len(cpf) != 11:
+        if not cpf.isdigit() or len(cpf != 11):
             raise ValidationError('cpf inválido')
-        
         if teste_cpf:
             raise ValidationError('cpf já existe')
         else:
